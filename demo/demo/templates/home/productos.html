@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+	{% block titulo %}Web dinamica desde la db{% endblock %}
+
+        {% block content %}
+			<h1>Catalogo de productos</h1>
+
+			<a href="{% url "vista_agregar_producto" %}">Agregar Productos</a>
+
+			{% if productos %}
+
+			 {% for p in productos %}
+
+			   <p>{{ p.nombre }}</p>
+
+			   <small>{{ p.descripcion }}</small>
+
+			  {% endfor %}
+
+			{% else %}
+
+			   <h2>no existen productos :( </h2>
+
+			{% endif %}
+
+        {% endblock %}
